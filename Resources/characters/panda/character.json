@@ -1,0 +1,22 @@
+{
+  "name": "Panda",
+  "credit": "Prompt Paws panda by Biswajit Das (CC BY-NC 4.0), made with GPT Image 2.5 and Meshy v7 via Higgsfield, 2026",
+  "model": "model.glb",
+  "walkSpeed": 0.24,
+  "runSpeed": 0.43,
+  "clips": {
+    "idle": "Idle",
+    "walk": "Walk",
+    "run": { "clip": "Walk", "speed": 1.8 },
+    "sit": { "clip": "Sit", "fade": 0.8 },
+    "sleep": { "clip": "Sleep", "once": true, "fade": 1.0 },
+    "wake": { "clip": "Wake", "once": true, "speed": 1.4, "fade": 0.6 },
+    "look": "Look",
+    "think": "Think",
+    "no": "Shrug",
+    "wave": "Wave",
+    "jump": "Jump",
+    "dance": "Dance",
+    "cheer": "Cheer"
+  }
+}

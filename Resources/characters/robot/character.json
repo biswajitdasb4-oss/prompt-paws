@@ -1,0 +1,29 @@
+{
+  "name": "Robot",
+  "credit": "RobotExpressive by Tomás Laulhé (Quaternius), CC0 1.0; changes by Don McCurdy",
+  "model": "RobotExpressive.glb",
+  "walkSpeed": 0.9,
+  "runSpeed": 2.2,
+  "clips": {
+    "idle": "Idle",
+    "walk": "Walking",
+    "run": "Running",
+    "sit": { "clip": "Sitting", "once": true },
+    "sleep": { "clip": "Death", "once": true },
+    "wake": "Standing",
+    "nod": "Yes",
+    "no": "No",
+    "wave": "Wave",
+    "jump": "Jump",
+    "dance": "Dance",
+    "cheer": "Dance",
+    "thumbs": "ThumbsUp",
+    "dangle": "No",
+    "land": "WalkJump"
+  },
+  "faces": {
+    "dangle": { "Surprised": 1 },
+    "no": { "Angry": 0.8 },
+    "sleep": { "Sad": 0.5 }
+  }
+}

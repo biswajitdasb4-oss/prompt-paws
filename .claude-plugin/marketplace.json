@@ -1,0 +1,12 @@
+{
+  "name": "prompt-paws",
+  "description": "Prompt Paws: a 3D desktop panda for macOS that shows what your Claude Code sessions are doing.",
+  "owner": { "name": "Biswajit Das", "url": "https://github.com/biswajitdasb4-oss" },
+  "plugins": [
+    {
+      "name": "prompt-paws",
+      "source": "./plugin",
+      "description": "Connects Claude Code to the Prompt Paws desktop panda (macOS app, installed separately)."
+    }
+  ]
+}

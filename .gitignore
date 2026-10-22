@@ -1,0 +1,7 @@
+node_modules/
+/build/
+.DS_Store
+media/**/*.err
+media/**/*.json
+media/**/*.url
+tools/check-public.local.sh

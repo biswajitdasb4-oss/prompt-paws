@@ -1,0 +1,11 @@
+{
+  "name": "prompt-paws",
+  "displayName": "Prompt Paws",
+  "version": "1.0.0",
+  "description": "Connects Claude Code to the Prompt Paws desktop panda: the panda shows when a session works, needs you, or waits for your next prompt.",
+  "author": { "name": "Biswajit Das", "url": "https://github.com/biswajitdasb4-oss" },
+  "homepage": "https://github.com/biswajitdasb4-oss/prompt-paws",
+  "repository": "https://github.com/biswajitdasb4-oss/prompt-paws",
+  "license": "MIT",
+  "keywords": ["macos", "desktop-pet", "status", "notifications"]
+}

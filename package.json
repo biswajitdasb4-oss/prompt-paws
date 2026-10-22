@@ -1,0 +1,10 @@
+{
+  "name": "prompt-paws",
+  "private": true,
+  "description": "A 3D desktop pet for macOS that roams the screen and reacts to Claude Code.",
+  "devDependencies": {
+    "@gltf-transform/core": "^4.5.1",
+    "@gltf-transform/extensions": "^4.5.1",
+    "three": "0.186.1"
+  }
+}

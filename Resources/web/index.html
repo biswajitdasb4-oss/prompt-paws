@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Paws</title>
+<style>
+  html, body { margin: 0; height: 100%; background: transparent; overflow: hidden; }
+  canvas { display: block; width: 100%; height: 100%; }
+
+  /* Claude status bubble over the pet's head (placed by pet.js). */
+  #bubble {
+    position: absolute; left: 50%; top: 0; transform: translate(-50%, -100%);
+    max-width: 94%; box-sizing: border-box; display: flex; align-items: center; gap: 6px;
+    padding: 5px 9px 5px 7px; border-radius: 11px; background: rgba(26, 27, 32, .92); color: #fff;
+    font: 600 11.5px/1.2 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .35); white-space: nowrap; pointer-events: none;
+  }
+  #bubble[hidden], #zzz[hidden] { display: none; }
+  #bubble::after {
+    content: ""; position: absolute; left: 50%; bottom: -5px; margin-left: -5px;
+    border: 5px solid transparent; border-bottom: 0; border-top-color: rgba(26, 27, 32, .92);
+  }
+  #bubble .txt { display: flex; flex-direction: column; min-width: 0; }
+  #bubble b, #bubble small { overflow: hidden; text-overflow: ellipsis; }
+  #bubble small { font-weight: 500; font-size: 10px; opacity: .72; }
+  #bubble .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: #8e8e93; }
+  #bubble.working .dot { animation: blink 1.2s ease-in-out infinite; }
+  #bubble.ready .dot { background: #30d158; }
+  #bubble.needs .dot { background: #ff9f0a; animation: pulse 1.2s ease-in-out infinite; }
+  #bubble.needs { animation: nudge 2.4s ease-in-out infinite; }
+  #bubble.pop { animation: pop .28s ease-out; }
+  /* Small window (160 pt): a tighter bubble, so it fits above the head inside the window. */
+  @media (max-height: 190px) {
+    #bubble { padding: 3px 7px 3px 5px; gap: 5px; border-radius: 9px; font-size: 10.5px; line-height: 1.1; }
+    #bubble small { font-size: 9px; }
+    #bubble .dot { width: 7px; height: 7px; }
+  }
+  @keyframes blink { 50% { opacity: .25; } }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 159, 10, .75); } 50% { box-shadow: 0 0 0 5px rgba(255, 159, 10, 0); } }
+  @keyframes nudge { 0%, 78%, 100% { margin-top: 0; } 86% { margin-top: -5px; } 92% { margin-top: 0; } 96% { margin-top: -2px; } }
+  @keyframes pop { from { opacity: 0; margin-top: 6px; } to { opacity: 1; margin-top: 0; } }
+
+  /* Sleeping: little z's rising from the head. */
+  #zzz {
+    position: absolute; left: 50%; top: 0; transform: translate(-10%, -100%); pointer-events: none;
+    font: 800 14px -apple-system, BlinkMacSystemFont, sans-serif; color: #eaf2ff;
+    text-shadow: 0 0 2px #0b0d12, 0 0 2px #0b0d12, 0 1px 4px rgba(0, 0, 0, .8);
+  }
+  #zzz span { display: inline-block; opacity: 0; animation: rise 3s ease-in-out infinite; }
+  #zzz span:nth-child(2) { font-size: 17px; animation-delay: 1s; }
+  #zzz span:nth-child(3) { font-size: 20px; animation-delay: 2s; }
+  @keyframes rise { 0% { opacity: 0; transform: translate(0, 6px); } 30% { opacity: 1; } 100% { opacity: 0; transform: translate(7px, -16px); } }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/build/three.module.js",
+    "three/addons/": "./vendor/three/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="bubble" hidden><span class="dot"></span><span class="txt"><b></b><small></small></span></div>
+<div id="zzz" hidden><span>z</span><span>z</span><span>z</span></div>
+<script type="module" src="./pet.js"></script>
+</body>
+</html>
