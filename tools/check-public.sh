@@ -13,7 +13,9 @@ fail=0
 check() {   # check <what> <grep options...>
   local what=$1; shift
   local out
-  out=$(tr '\n' '\0' < "$LIST" | xargs -0 grep -I -n "$@" 2>/dev/null)
+  # Known safe: a workflow's "id-token: write" (the permission GitHub Pages needs, not a secret).
+  out=$(tr '\n' '\0' < "$LIST" | xargs -0 grep -I -n "$@" 2>/dev/null |
+    grep -v -E '^\.github/workflows/[^:]+\.ya?ml:[0-9]+: +id-token: write$')
   if [[ -n "$out" ]]; then echo "LEAK: $what"; echo "$out" | sed 's/^/    /' | cut -c1-160; fail=1; fi
 }
 check "UUIDs (job or workspace IDs)" -i -E -e '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'

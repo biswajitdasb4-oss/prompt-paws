@@ -13,6 +13,9 @@ character format, build and checks.
 - Meshy moves are never copy-ready: each rigging run has its own skeleton and its own floor height. Add moves
   only through `tools/build-panda.sh` (retarget + ground), then check them against Meshy's own file side by
   side and check the floor contact.
+- The browser demo (`demo/`) uses `Resources/web/pet.js` and the panda as they are. `demo/demo.js` ports
+  `Brain.swift` and the bubble rules in `App.swift`: change both together. Check it with
+  `tools/build-site.sh && node tools/demo-check.mjs`. GitHub Pages publishes it on a push to `main`.
 - For visual checks use `node tools/review.mjs <character>` (headless Chrome renders). Screenshots of the
   real screen need Screen Recording permission.
 - The self-test puts the pet on the real screen and adds (then removes) fake session files

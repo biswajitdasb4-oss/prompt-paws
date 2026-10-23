@@ -1,0 +1,38 @@
+# Publish the browser demo (demo/ plus the app's renderer and panda) to GitHub Pages.
+name: Demo site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - demo/**
+      - docs/panda.png
+      - Resources/web/**
+      - Resources/characters/panda/**
+      - tools/build-site.sh
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - run: tools/build-site.sh
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: build/site
+      - id: deployment
+        uses: actions/deploy-pages@v5

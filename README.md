@@ -7,6 +7,9 @@ session's Terminal tab, from Chrome or anywhere else.
 **[⬇ Download Prompt Paws 1.0.0](https://github.com/biswajitdasb4-oss/prompt-paws/releases/latest/download/Prompt-Paws-1.0.0.zip)**
 (macOS 13 or later, Apple Silicon or Intel, 2.9 MB) · [Install steps](#install)
 
+Or **[try it in your browser](https://biswajitdasb4-oss.github.io/prompt-paws/)** first: the real panda with a
+pretend Claude, nothing to install.
+
 <p align="center"><img src="docs/panda.png" width="280" alt="The Prompt Paws panda: a chubby panda in a yellow knitted hoodie with headphones around his neck"></p>
 
 ## What it does
@@ -139,9 +142,12 @@ reads these files and deletes them after a day.
 ./build.sh --install     # build, quit the running panda, copy to ~/Applications
 "build/Prompt Paws.app/Contents/MacOS/PromptPaws" --selftest   # 39 checks: window, moves, Claude states, clicks, modes
 tools/check-public.sh    # nothing private in the files about to be published
+tools/build-site.sh      # the browser demo (demo/ + the app's renderer and panda) in build/site
 ```
 Tools that need Node.js (`npm install` first): `node tools/review.mjs <character>` renders turntable,
-moves and bubbles to `build/review/`; `python3 tools/measure.py` measures real CPU per state.
+moves and bubbles to `build/review/`; `python3 tools/measure.py` measures real CPU per state;
+`node tools/demo-check.mjs` plays the browser demo in headless Chrome (desktop and phone) after
+`tools/build-site.sh`.
 
 Measured on a 2017 MacBook Pro (dual-core i5) under heavy load, % of one CPU core: about 7.5% while
 roaming, 3.9% asleep, 0.4% paused or hidden. It renders at about 30 fps (10 asleep, 0 paused).
