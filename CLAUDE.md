@@ -25,3 +25,5 @@ character format, build and checks.
 - New characters or moves cost credits on paid services: ask the owner first, with model, runs and cost.
 - Release: bump `CFBundleShortVersionString` in `Info.plist` and `version` in
   `plugin/.claude-plugin/plugin.json` together, `./build.sh --zip`, tag `v<version>`, `gh release create`.
+  The README's two download links name the zip with its version (`Prompt-Paws-<version>.zip`): change both,
+  or they stop working when the new Release becomes the latest.

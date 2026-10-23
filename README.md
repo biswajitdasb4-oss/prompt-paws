@@ -4,6 +4,9 @@ A 3D panda that lives on your Mac's screen and tells you what Claude Code is doi
 you, or it's your turn, its bubble says so, and one click on the panda brings you straight to that
 session's Terminal tab, from Chrome or anywhere else.
 
+**[⬇ Download Prompt Paws 1.0.0](https://github.com/biswajitdasb4-oss/prompt-paws/releases/latest/download/Prompt-Paws-1.0.0.zip)**
+(macOS 13 or later, Apple Silicon or Intel, 2.9 MB) · [Install steps](#install)
+
 <p align="center"><img src="docs/panda.png" width="280" alt="The Prompt Paws panda: a chubby panda in a yellow knitted hoodie with headphones around his neck"></p>
 
 ## What it does
@@ -35,8 +38,9 @@ You need macOS 13 (Ventura) or later, on Apple Silicon or Intel, and
 ### 1. Get the app
 
 **Download (easiest)**
-1. Download `Prompt-Paws-1.0.0.zip` from
-   [Releases](https://github.com/biswajitdasb4-oss/prompt-paws/releases/latest) and open it.
+1. Download **[Prompt-Paws-1.0.0.zip](https://github.com/biswajitdasb4-oss/prompt-paws/releases/latest/download/Prompt-Paws-1.0.0.zip)**
+   and open it. (On the [Releases](https://github.com/biswajitdasb4-oss/prompt-paws/releases/latest) page it
+   is under **Assets**. Do not pick "Source code": that is not the app.)
 2. Drag **Prompt Paws** into your **Applications** folder.
 3. Open it. macOS says it can't check the app: click **Done**. Then open **System Settings › Privacy &
    Security**, scroll down, and click **Open Anyway** next to Prompt Paws (only the first time).
